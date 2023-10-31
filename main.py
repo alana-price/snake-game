@@ -29,7 +29,7 @@ def main():
     # Function to print the player's score on the screen
     def print_score(score):
         # Render the score as pink text
-        text = score_font.render("Score: " + str(score), True, black)
+        text = score_font.render("Score: " + str(score), True, pink)
         # Display the score
         game_display.blit(text, [20, 20])
 
@@ -64,10 +64,15 @@ def main():
                 game_display.fill(white)
                 game_over_message = message_font.render("GAME OVER", True, red)
                 game_display.blit(game_over_message, [width / 3, height / 3])
+
+                score_message = message_font.render("Score: " + str(snake_length -1), True, black)
+                game_display.blit(score_message, [width / 3, 50 + height / 3])
+
                 quit_message = message_font.render("Press \'Q\' to Quit", True, black)
-                game_display.blit(quit_message, [width / 3, 50 + height / 3])
+                game_display.blit(quit_message, [width / 3, 100 + height / 3])
+
                 restart_message = message_font.render("Press \'R\' to Restart", True, black)
-                game_display.blit(restart_message, [width / 3, 100 + height / 3])
+                game_display.blit(restart_message, [width / 3, 150 + height / 3])
 
                 print_score(snake_length - 1)
                 pygame.display.update()
